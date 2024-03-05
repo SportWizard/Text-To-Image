@@ -19,8 +19,8 @@ def speech(words):
 	engine.say(words)
 	engine.runAndWait()
 
-path_to_tesseract = r"D:\Tesseract\tesseract.exe"
-image_path = r"D:\Python\Text To Image\image.png"
+path_to_tesseract = r"" #download tesseract and put the location of tesseract.exe
+image_path = r"image.png"
 
 img = Image.open(image_path)
 
@@ -54,7 +54,7 @@ for sentence in sentences:
     try:
         image_url = [img["src"] for img in image_tags][1]
 
-        directory = "D:\Codes\Python\Text To Image"
+        directory = "Text To Image"
         if not os.path.exists(directory):
             os.makedirs(directory)
 
@@ -62,7 +62,7 @@ for sentence in sentences:
         with open(os.path.join(directory, "pic.png"), "wb") as f:
             f.write(response.content)
 
-        img = cv2.imread("D:\Codes\Python\Text To Image\pic.png")
+        img = cv2.imread("Text To Image\pic.png")
         img = cv2.resize(img, (800, 800))
         cv2.imshow("Image", img)
 
